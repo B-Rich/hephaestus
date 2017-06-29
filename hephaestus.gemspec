@@ -5,7 +5,7 @@ require 'hephaestus/bot/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "hephaestus"
-  spec.version       = Hephaestus::VERSION
+  spec.version       = Hephaestus::Bot::VERSION
   spec.authors       = ["Jelizondo"]
   spec.email         = ["jelizondo@icalialabs.com"]
 
