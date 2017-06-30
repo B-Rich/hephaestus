@@ -8,6 +8,12 @@ module Hephaestus
         parsed_response = JSON.parse(response.body)
         return ListEnvironmentsResponse.new(parsed_response) if response.success?
       end
+
+      def self.add(params = {})
+        response = get("/environments", query: {version: params[:version]}, body: params[:body].to_json, headers: { "Content-Type" => "application/json" } )
+        parsed_response = JSON.parse(response.body)
+        return ListEnvironmentsResponse.new(parsed_response) if response.success?
+      end
     end
   end
 end
