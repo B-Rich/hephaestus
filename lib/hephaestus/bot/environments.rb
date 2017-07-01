@@ -20,21 +20,21 @@ module Hephaestus
       end
 
       def self.info(params = {})
-        response = get("/environments/#{params[:id]}", query: {version: params[:version]}, headers: { "Content-Type" => "application/json" } )
+        response = get("/environments/#{params[:environment_id]}", query: {version: params[:version]}, headers: { "Content-Type" => "application/json" } )
         parsed_response = JSON.parse(response.body)
         return Environment.new(parsed_response) if response.success?
         raise_exception(response.code, response.body)
       end
 
       def self.delete_environment(params = {})
-        response = delete("/environments/#{params[:id]}", query: {version: params[:version]}, headers: { "Content-Type" => "application/json" } )
+        response = delete("/environments/#{params[:environment_id]}", query: {version: params[:version]}, headers: { "Content-Type" => "application/json" } )
         parsed_response = JSON.parse(response.body)
         return DeleteEnvironmentResponse.new(parsed_response) if response.success?
         raise_exception(response.code, response.body)
       end
 
       def self.update(params = {})
-        response = put("/environments/#{params[:id]}", query: {version: params[:version]}, body: params[:body].to_json, headers: { "Content-Type" => "application/json" } )
+        response = put("/environments/#{params[:environment_id]}", query: {version: params[:version]}, body: params[:body].to_json, headers: { "Content-Type" => "application/json" } )
         parsed_response = JSON.parse(response.body)
         return Environment.new(parsed_response) if response.success?
         raise_exception(response.code, response.body)

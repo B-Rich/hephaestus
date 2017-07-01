@@ -22,7 +22,7 @@ describe Hephaestus::Bot::Environments do
     it "Should return an instance of type  Hephaestus::Bot::Environment" do
       stub_response = EnvironmentListResponseExample.new
       allow(Hephaestus::Bot::Environments).to receive(:get).and_return(stub_response)
-      expect(Hephaestus::Bot::Environments.info(version: "", id: "")).to be_kind_of(Hephaestus::Bot::Environment)
+      expect(Hephaestus::Bot::Environments.info(version: "", environment_id: "")).to be_kind_of(Hephaestus::Bot::Environment)
     end
   end
 
@@ -30,7 +30,7 @@ describe Hephaestus::Bot::Environments do
     it "Should return an instance of type  Hephaestus::Bot::DeleteEnvironmentResponse" do
       stub_response = DeleteEnvironmentResponseExample.new
       allow(Hephaestus::Bot::Environments).to receive(:delete).and_return(stub_response)
-      expect(Hephaestus::Bot::Environments.delete_environment({version: "", id: ""})).to be_kind_of(Hephaestus::Bot::DeleteEnvironmentResponse)
+      expect(Hephaestus::Bot::Environments.delete_environment({version: "", environment_id: ""})).to be_kind_of(Hephaestus::Bot::DeleteEnvironmentResponse)
     end
   end
 
